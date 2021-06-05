@@ -2,13 +2,17 @@ class PagesController < ApplicationController
   DEFAULT_FALLBACK_CITY = 'KUALA LUMPUR'
 
   def index
-    city = request.location.present? ? request.location.city.upcase : DEFAULT_FALLBACK_CITY
+    city = request.location.city.nil? ? DEFAULT_FALLBACK_CITY : request.location.city.upcase
     external_id = Location.state.find_by(name: city).external_id
 
-    @forecast = Met::Forecast::General.call(external_id).response
-    @max_celcius = @forecast.map { |a| a if a['datatype'].eql?('FMAXT') }.compact.last['value']
-    @min_celcius = @forecast.map { |a| a if a['datatype'].eql?('FMINT') }.compact.last['value']
-    @condition = condition
+    if external_id.present?
+      @forecast = Met::Forecast::General.call(external_id).response
+      @max_celcius = @forecast.map { |a| a if a['datatype'].eql?('FMAXT') }.compact.last['value']
+      @min_celcius = @forecast.map { |a| a if a['datatype'].eql?('FMINT') }.compact.last['value']
+      @condition = condition
+    else
+      redirect_to no_service_pages_path
+    end
   end
 
   private
