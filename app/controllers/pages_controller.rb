@@ -1,20 +1,17 @@
 class PagesController < ApplicationController
-  before_action :set_state_name, only: %i[index]
+  DEFAULT_FALLBACK_CITY = 'KUALA LUMPUR'
 
   def index
-    @states = Location.state
+    city = request.location.present? ? request.location.city.upcase : DEFAULT_FALLBACK_CITY
+    external_id = Location.state.find_by(name: city).external_id
 
-    @forecast = Met::Forecast::General.call(params[:location_id]).response
+    @forecast = Met::Forecast::General.call(external_id).response
     @max_celcius = @forecast.map { |a| a if a['datatype'].eql?('FMAXT') }.compact.last['value']
     @min_celcius = @forecast.map { |a| a if a['datatype'].eql?('FMINT') }.compact.last['value']
     @condition = condition
   end
 
   private
-
-  def set_state_name
-    @state_name = Location.find_by(external_id: params[:location_id] || 'LOCATION:4').name
-  end
 
   def condition
     current_time = Time.current.to_i
