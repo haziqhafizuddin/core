@@ -6,7 +6,8 @@ module Met
       def initialize(location_id, options = {})
         current_date ||= I18n.l(Date.current, format: :short_date)
 
-        @location_id = location_id
+        # NOTE: Fallback to default to KL
+        @location_id = location_id || 'LOCATION:4'
         @start_date = options[:start_date] || current_date
         @end_date = options[:end_date] || current_date
       end

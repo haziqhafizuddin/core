@@ -1,0 +1,11 @@
+.flex.flex-col.items-center.justify-center.h-screen
+  .text-xl.font-bold.flex.flex-col.text-gray-900.mb-5
+    %span.uppercase.text-center= greeting
+    %span.font-normal.text-gray-700.text-sm.text-center= l(Date.current, format: :month_date_only)
+  %p.text-gray-700.mb-2= @condition['value']
+  .text-xl.font-bold.text-gray-700.mb-6
+    #{@max_celcius}º
+    %span.font-normal.text-gray-700.mx-1> /
+    #{@min_celcius}º
+  = form_tag root_path, method: :get do
+    = select_tag :location_id, options_from_collection_for_select(@states, 'external_id', 'name', selected: params[:location_id]), include_blank: 'Select State', onchange: 'this.form.submit();', class: 'px-4 py-3'

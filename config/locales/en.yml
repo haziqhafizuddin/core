@@ -33,3 +33,5 @@ en:
   date:
     formats:
       short_date: '%Y-%m-%d'
+      month_date_only: '%B %d'
+      weekday: '%a'
