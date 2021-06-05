@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# CUACA
+"[Cuaca](http://www.cuaca.io)" came from "Malay" words, which bring the meaning of weather 🌤 🌧 🌩
 
-Things you may want to cover:
+This site is using [MET Malaysia API](https://api.met.gov.my/).
 
-* Ruby version
+# Contribution
+You are welcome to contribute to this project! Send in a PR 😆
 
-* System dependencies
+Just an idea for contribution, you may add in spec, rubocop, add up new feature, or improving the current code / UI UX!
 
-* Configuration
+## Pre-installation
+This project is fully run on Ruby on Rails and [tailwind](https://tailwindcss.com/). Make sure that you have the following installed in you machine or docker:
 
-* Database creation
+```
+Ruby version 2.7.1
+```
 
-* Database initialization
+Since I could not share the `master.key` you may register the API yourself. Here is the example of the key am using in this Project.
 
-* How to run the test suite
+```
+met:
+  url:
+  token:
+```
+Once you have registered, you may add your keys value accordingly.
 
-* Services (job queues, cache servers, search engines, etc.)
+### Screenshot:
+![cuaca-site-screenshot](cuaca-screen-shot.png)
 
-* Deployment instructions
-
-* ...
