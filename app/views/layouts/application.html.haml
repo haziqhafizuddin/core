@@ -8,14 +8,14 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-    -# - if Rails.env.production?
-    -#   %script{:async => "", :src => "https://www.googletagmanager.com/gtag/js?id=G-WVNHN946F2"}
-    -#   :javascript
-    -#     window.dataLayer = window.dataLayer || [];
-    -#     function gtag(){dataLayer.push(arguments);}
-    -#     gtag('js', new Date());
+    - if Rails.env.production?
+      %script{:async => "", :src => "https://www.googletagmanager.com/gtag/js?id=G-WVNHN946F2"}
+      :javascript
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    -#     gtag('config', 'G-WVNHN946F2');
+        gtag('config', 'G-WVNHN946F2');
   %body
     .flex.flex-col.items-center.justify-center.h-screen
       .container.mx-auto

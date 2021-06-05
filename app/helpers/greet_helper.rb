@@ -12,7 +12,7 @@ module GreetHelper
 
     # Evening
     evening = Time.current.change(hour: 17, min: 00).to_i
-    late_evening = Time.current.change(hour: 4, min: 59).to_i
+    late_evening = 1.day.from_now.change(hour: 4, min: 59).to_i
 
     return 'Good Morning' if morning.upto(late_morning).include?(current_time)
     return 'Good Afternoon' if noon.upto(late_noon).include?(current_time)

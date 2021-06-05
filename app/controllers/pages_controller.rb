@@ -29,7 +29,7 @@ class PagesController < ApplicationController
 
     # Evening
     evening = Time.current.change(hour: 17, min: 00).to_i
-    late_evening = Time.current.change(hour: 4, min: 59).to_i
+    late_evening = 1.day.from_now.change(hour: 4, min: 59).to_i
 
     return @forecast.map { |a| a if a['datatype'].eql?('FGM') }.compact.last if morning.upto(late_morning).include?(current_time)
     return @forecast.map { |a| a if a['datatype'].eql?('FGA') }.compact.last if noon.upto(late_noon).include?(current_time)
