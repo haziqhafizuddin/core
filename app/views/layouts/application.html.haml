@@ -9,5 +9,9 @@
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    .container.mx-auto
-      = yield
+    .flex.flex-col.items-center.justify-center.h-screen
+      .container.mx-auto
+        = yield
+      %footer
+        .flex.justify-center
+          %p.text-black-400 Made by Malaysian
