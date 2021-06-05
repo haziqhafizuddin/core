@@ -27,5 +27,4 @@ met:
 Once you have registered, you may add your keys value accordingly.
 
 ### Screenshot:
-![cuaca-site-screenshot](cuaca-screen-shot.png)
-
+![cuaca-site-screenshot](new-cuaca-screen-shot.png)
