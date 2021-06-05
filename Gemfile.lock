@@ -69,6 +69,7 @@ GEM
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
     ffi (1.15.1)
+    geocoder (1.6.4)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     haml (5.2.1)
@@ -192,6 +193,7 @@ DEPENDENCIES
   byebug
   dalli
   faraday
+  geocoder
   haml
   jbuilder (~> 2.7)
   listen (~> 3.2)
